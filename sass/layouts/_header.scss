@@ -1,0 +1,32 @@
+// the main header of the page
+
+.header {
+    height: 100vh;
+    @include clearfix;
+    
+
+    &__left { // the left side of the heading section
+        float: left; 
+        width: 50%;
+        height: 100%;
+        position: relative;
+    }
+
+    &__text-box { // container for the main headings
+        padding: 3rem;
+        position: absolute;
+        top: 60%;
+        
+    }
+
+    &__right {
+        float:left;
+        width: 50%;
+        height: 100%;
+
+        background-image: linear-gradient(to right, rgba($color-gray-dark-3, 0.3) 0%, rgba($color-black, 0.8)), url(../img/hero.jpg);
+        background-size: cover;
+        background-position: top;
+        
+    }
+}
