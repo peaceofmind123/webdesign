@@ -1,0 +1,42 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        position: relative;
+        text-decoration: none;
+        display: inline-block;
+        color: $color-white;
+        text-transform: capitalize;
+        font-size: 2rem;
+        transition: all .2s;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 2.3rem;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background-color: $color-white;
+        opacity: 0;
+        transition: all .9s;
+        
+    }
+
+    &:hover  {
+        &::after {
+            opacity: 1;
+            width: 100%;
+            
+        }
+        
+    }
+    
+    &--primary {
+        margin-top: 10rem;
+    }
+    
+    
+}

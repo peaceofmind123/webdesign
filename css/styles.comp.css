@@ -11,16 +11,15 @@ body {
   font-family: 'Big Shoulders Text', sans-serif; }
 
 .heading-primary {
-  text-transform: uppercase;
-  color: #fff; }
+  text-transform: capitalize;
+  color: #000; }
   .heading-primary--main {
-    font-size: 7rem;
+    font-size: 6rem;
     font-weight: 200;
-    letter-spacing: 1.2rem;
     display: block; }
   .heading-primary--sub {
     font-size: 2.6rem;
-    letter-spacing: .26rem;
+    letter-spacing: .3rem;
     font-weight: 300;
     display: block; }
 
@@ -36,9 +35,6 @@ body {
 .u-margin-bottom-small {
   margin-bottom: 1.5rem !important; }
 
-.u-margin-bottom-huge {
-  margin-bottom: 10rem !important; }
-
 .u-margin-top-large {
   margin-top: 8rem !important; }
 
@@ -48,43 +44,25 @@ body {
 .btn, .btn:link, .btn:visited {
   position: relative;
   text-decoration: none;
-  display: inline-block;
-  color: #fff;
+  color: #000;
   text-transform: capitalize;
-  font-size: 2rem;
-  transition: all .2s; }
+  font-size: 1.8rem; }
 
 .btn::after {
   content: "";
   display: block;
   position: absolute;
   top: 2.3rem;
-  right: 0;
-  width: 0;
+  width: 10%;
   height: 2px;
-  background-color: #fff;
+  background-color: #000;
   opacity: 0;
   transition: all .9s; }
 
 .btn:hover::after {
-  opacity: 1;
-  width: 100%; }
-
-.btn--primary {
-  margin-top: 10rem; }
-
-.bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden; }
-  .bg-video__content {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -100; }
+  transform: scaleX(10);
+  transform-origin: left;
+  opacity: 1; }
 
 .header {
   height: 100vh; }
@@ -100,9 +78,7 @@ body {
   .header__text-box {
     padding: 3rem;
     position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
+    top: 60%; }
   .header__right {
     float: left;
     width: 50%;

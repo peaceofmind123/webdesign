@@ -3,7 +3,6 @@
 .header {
     height: 100vh;
     @include clearfix;
-    
 
     &__left { // the left side of the heading section
         float: left; 
@@ -16,6 +15,8 @@
         padding: 3rem;
         position: absolute;
         top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         
     }
 
