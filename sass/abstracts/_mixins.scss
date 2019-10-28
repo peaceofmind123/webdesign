@@ -5,3 +5,34 @@
         clear: both;
     }
 }
+
+@mixin centerBlockElement {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin linkUnderline($color, $heightOfText, $transitionTime) { // include this on a link or button to make it have a black underline with animations
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: $heightOfText;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background-color: $color;
+        opacity: 0;
+        transition: all $transitionTime;
+        
+    }
+
+    &:hover  {
+        &::after {
+            opacity: 1;
+            width: 100%;
+            
+        }
+    }
+}

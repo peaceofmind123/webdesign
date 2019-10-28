@@ -1,0 +1,138 @@
+.navigation {
+    &__check {  // the check box to evalute the two states of the button
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__button { // the actual button (unchecked state)
+        
+        position: fixed;
+        display: inline-block;
+        top: 3rem;
+        right: 3rem;
+        width: 6rem;
+        height: 6rem;
+        z-index: 20000; // the max z index
+        border-radius: 50%;
+        background-color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        transition: all .2s;
+
+        &:hover { // the button hover effect (part 1)
+            transform: translateY(-2px);
+        }
+    }
+
+    
+    
+    &__button:hover &__icon::before { // the button hover effect (part 2)
+        top: -.9rem;
+    }
+
+    &__button:hover &__icon::after { // the button hover effect (part 3)
+        top: .9rem;
+    }
+
+    // the navigation button's icon: the 3 lines: before, & , after
+    &__icon {
+        &,
+        &::before,
+        &::after { // common to all three
+            content: "";
+            display: inline-block;
+            background-color: $color-black;
+            height: 2px;
+            transition: transform .4s ;
+        }
+
+        @include centerBlockElement; // the & elem is centered on the button
+        width: 60%;
+        
+        &::before,
+        &::after {
+            width: 100%; // before and after both have the same width as &
+            position: absolute;
+            left: 0;
+        }
+
+        &::before {
+            top: -.8rem;
+        }
+
+        &::after {
+            top: .8rem;
+        }
+    }
+
+    &__check:checked ~ &__button &__icon { // the button's icon in the checked state
+        
+        background-color: transparent;
+
+        &::before, &::after {
+            top: 0;
+        }
+
+        &::before {
+            transform: rotate(-135deg);
+            
+        }
+        &::after {
+            transform: rotate(135deg);
+            
+        }
+    }
+
+    &__nav { // the navigation list's container
+        display: inline-block;
+        position: fixed;
+        top: 4rem;
+        right: 7rem;
+        background-color: $color-white;
+        font-size: $default-font-size;
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        z-index: 10000; // second max z index
+        // initial state
+        opacity: 0;
+        width: 0;
+        visibility: hidden;
+        transition: all .2s;
+        
+    }
+
+    &__check:checked ~ &__nav { // the checked state
+        opacity: 1;
+        width: 30%;
+        visibility: visible;
+        text-align: center;
+        
+       
+    }
+
+    &__check:checked ~ &__nav &__item {
+        width: fit-content;
+        transition: all .1s .1s;
+    }
+    &__list {
+        list-style: none;
+        
+
+    }
+
+    &__item {
+        width: 0;
+        display: inline-block;
+        padding: 1rem 0;
+        margin: 0 3rem;
+    }
+    
+    &__link {
+        text-decoration: none;
+        display: inline-block;
+        color: $color-black;
+        
+        position: relative;
+        @include linkUnderline($color-black, 2rem, .5s);
+
+        
+    }
+}
