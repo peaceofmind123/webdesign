@@ -9,11 +9,16 @@
         text-transform: capitalize;
         font-size: 2rem;
         transition: all .2s;
+        padding: 1rem 2rem;
+    }
+    
+    &--green {
+        
+        background-color: $color-secondary;
+        color: $color-gray-dark-3 !important;
+        
     }
 
-    @include linkUnderline($color-gray-light-1, 2.5rem, .9s);
-    
-    
     &--animated {
         animation: moveInFromBottom 1s;
     }

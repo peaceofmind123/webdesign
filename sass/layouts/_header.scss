@@ -1,16 +1,17 @@
 // the main header of the page
 
 .header {
-    height: 100vh;
+    height: 95vh;
     @include clearfix;
-    background-image: linear-gradient(rgba($color-black, .4), rgba($color-black, .4)), url(../img/hero-1.jpg);
+    background-image: linear-gradient(rgba($color-primary, .8), rgba($color-primary, .8)), url(../img/hero-1.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 
     &__text-box { // container for the main headings
         position: absolute;
-        top: 55%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         
