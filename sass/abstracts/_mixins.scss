@@ -37,3 +37,48 @@
         }
     }
 }
+
+/*
+    MEDIA QUERY MANAGER
+
+    available width ranges (px):
+    0-600: phone
+    600-900: tab-port
+    900-1200: tab-land
+    [1200-1800: default (desktop)]
+    1800-inf: big-desktop
+
+    breakpoints in em (ref font size is 16):
+    phone: 37.5em
+    tab-port: 56.25em
+    tab-land: 75em
+    big-desktop: 112.5em
+
+    ORDER of applying media queries: base, typography > layout (general) > pages (specific page layout) > components
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) {
+            @content;
+        }
+    }
+    
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == big-desktop {
+        @media only screen and (max-width: 112.5em) {
+            @content;
+        }
+    }
+}

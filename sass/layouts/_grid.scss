@@ -1,0 +1,58 @@
+.row {
+    max-width: $grid-max-width; // standard 1140px
+
+    @include respond(tab-port) {
+        max-width: 60rem; // bring the padding on left and right back
+        padding: 0 3rem;
+    }
+    margin: 0 auto;
+    
+    @include clearfix;
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+        @include respond(tab-port) {
+            margin-bottom: $gutter-vertical-small; // for multi-row sections
+        }
+    }
+
+    [class^="col-"] {
+        float: left;
+        
+        @include respond(tab-port) {
+            width: 100% !important; // transform cols into rows
+        }
+
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+            
+            @include respond(tab-port) {
+                margin-right: 0; // since cols are now rows, no need or right margin
+                margin-bottom: $gutter-vertical-small; // too huge gutter, so reduce
+            }
+        }
+    }
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - 2* #{$gutter-horizontal}) / 3);
+    }
+
+    .col-2-of-3 {
+        width: calc(2 * ((100% - 2* #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+    }
+
+    .col-1-of-4 {
+        width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+    }
+    
+    .col-2-of-4 {
+        width: calc(2* (100% - 3 * #{$gutter-horizontal}) / 4 + #{$gutter-horizontal});
+    }
+
+    .col-3-of-4 {
+        width: calc(3 * (100% - 3 * #{$gutter-horizontal}) / 4 + 2* #{$gutter-horizontal});
+    }
+}

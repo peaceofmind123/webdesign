@@ -17,3 +17,25 @@
         animation: moveInFromRight 1s;
     }
 }
+
+.heading-secondary {
+    text-transform: capitalize;
+    font-size: 3.5rem;
+    color: $color-primary;
+    font-weight: 300;
+
+}
+
+.heading-tertiary {
+    text-transform: capitalize;
+    font-size: 3rem;
+    color: $color-black;
+    font-weight: 300;
+}
+.paragraph {
+    font-size: 1.8rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: $color-gray-dark-3;
+    line-height: 2rem;
+}

@@ -1,3 +1,21 @@
+/*
+    MEDIA QUERY MANAGER
+
+    available width ranges (px):
+    0-600: phone
+    600-900: tab-port
+    900-1200: tab-land
+    [1200-1800: default (desktop)]
+    1800-inf: big-desktop
+
+    breakpoints in em (ref font size is 16):
+    phone: 37.5em
+    tab-port: 56.25em
+    tab-land: 75em
+    big-desktop: 112.5em
+
+    ORDER of applying media queries: base, typography > layout (general) > pages (specific page layout) > components
+*/
 @keyframes moveInFromLeft {
   0% {
     transform: translateX(-10rem);
@@ -64,6 +82,25 @@ body {
     display: block;
     animation: moveInFromRight 1s; }
 
+.heading-secondary {
+  text-transform: capitalize;
+  font-size: 3.5rem;
+  color: #207dff;
+  font-weight: 300; }
+
+.heading-tertiary {
+  text-transform: capitalize;
+  font-size: 3rem;
+  color: #000;
+  font-weight: 300; }
+
+.paragraph {
+  font-size: 1.8rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #333;
+  line-height: 2rem; }
+
 .u-center-text {
   text-align: center !important; }
 
@@ -101,6 +138,46 @@ body {
 
 .btn--animated {
   animation: moveInFromBottom 1s; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  @media only screen and (max-width: 56.25em) {
+    .row {
+      max-width: 60rem;
+      padding: 0 3rem; } }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+    @media only screen and (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 6rem; } }
+  .row [class^="col-"] {
+    float: left; }
+    @media only screen and (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important; } }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+      @media only screen and (max-width: 56.25em) {
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 6rem; } }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2* 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2* 6rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2* (100% - 3 * 6rem) / 4 + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * (100% - 3 * 6rem) / 4 + 2* 6rem); }
 
 .header {
   height: 95vh;
@@ -166,3 +243,8 @@ body {
   .navigation__link--active::after {
     opacity: 1;
     width: 100%; }
+
+.section-about {
+  background-color: #f6fafd;
+  padding: 20rem 0;
+  margin-top: -15rem; }
