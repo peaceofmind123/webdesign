@@ -1,0 +1,86 @@
+// the code for the navigation button to be added in the mobile media queries
+
+//html
+<input type="checkbox" name="navi-check" id="navi-check" class="navigation__check">
+        <label class="navigation__button" for="navi-check">
+            <span class="navigation__icon">&nbsp;</span>
+        </label>
+
+//scss (add inside navigation)
+&__button { // the actual button (unchecked state)
+        
+        position: fixed;
+        display: inline-block;
+        top: 3rem;
+        right: 3rem;
+        width: 6rem;
+        height: 6rem;
+        z-index: 20000; // the max z index
+        border-radius: 50%;
+        background-color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        transition: all .2s;
+
+        &:hover { // the button hover effect (part 1)
+            transform: translateY(-2px);
+        }
+    }
+
+    
+    
+    &__button:hover &__icon::before { // the button hover effect (part 2)
+        top: -.9rem;
+    }
+
+    &__button:hover &__icon::after { // the button hover effect (part 3)
+        top: .9rem;
+    }
+
+    // the navigation button's icon: the 3 lines: before, & , after
+    &__icon {
+        &,
+        &::before,
+        &::after { // common to all three
+            content: "";
+            display: inline-block;
+            background-color: $color-black;
+            height: 2px;
+            transition: transform .4s ;
+        }
+
+        @include centerBlockElement; // the & elem is centered on the button
+        width: 60%;
+        
+        &::before,
+        &::after {
+            width: 100%; // before and after both have the same width as &
+            position: absolute;
+            left: 0;
+        }
+
+        &::before {
+            top: -.8rem;
+        }
+
+        &::after {
+            top: .8rem;
+        }
+    }
+
+    &__check:checked ~ &__button &__icon { // the button's icon in the checked state
+        
+        background-color: transparent;
+
+        &::before, &::after {
+            top: 0;
+        }
+
+        &::before {
+            transform: rotate(-135deg);
+            
+        }
+        &::after {
+            transform: rotate(135deg);
+            
+        }
+    }
