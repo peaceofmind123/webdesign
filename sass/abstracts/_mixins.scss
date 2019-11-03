@@ -28,7 +28,8 @@
         
     }
 
-    &:hover  {
+    &:hover,
+    &:active  {
         &::after {
             opacity: 1;
             width: 100%;

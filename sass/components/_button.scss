@@ -5,17 +5,16 @@
         position: relative;
         text-decoration: none;
         display: inline-block;
-        color: $color-white;
+        color: $color-gray-light-1;
         text-transform: capitalize;
         font-size: 2rem;
         transition: all .2s;
     }
 
-    @include linkUnderline($color-white, 2.3rem, .9s);
+    @include linkUnderline($color-gray-light-1, 2.5rem, .9s);
     
-    &--primary {
-        margin-top: 10rem;
+    
+    &--animated {
+        animation: moveInFromBottom 1s;
     }
-    
-    
 }
